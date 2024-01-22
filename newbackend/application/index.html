@@ -1,0 +1,85 @@
+<template>
+    <div class="home">
+      <h1>Welcome to Our Fashion App!</h1>
+      
+      <!-- Featured Categories -->
+      <div class="featured-categories">
+        <h2>Featured Categories</h2>
+        <div class="category" v-for="(category, index) in featuredCategories" :key="index">
+          <img :src="category.image" alt="Category Image" />
+          <h3>{{ category.name }}</h3>
+          <p>{{ category.description }}</p>
+        </div>
+      </div>
+      
+      <!-- Trending Products -->
+      <div class="trending-products">
+        <h2>Trending Products</h2>
+        <div class="product" v-for="(product, index) in trendingProducts" :key="index">
+          <img :src="product.image" alt="Product Image" />
+          <h3>{{ product.name }}</h3>
+          <p>{{ product.description }}</p>
+          <p>Price: ${{ product.price }}</p>
+        </div>
+      </div>
+    </div>
+  </template>
+  
+  <script>
+  export default {
+    data() {
+      return {
+        featuredCategories: [
+          {
+            name: 'Men\'s Fashion',
+            description: 'Discover the latest trends for men.',
+            image: 'url_to_image',
+          },
+          {
+            name: 'Women\'s Fashion',
+            description: 'Explore the finest collection for women.',
+            image: 'url_to_image',
+          },
+          // Add more featured categories as needed
+        ],
+        trendingProducts: [
+          {
+            name: 'Stylish T-Shirt',
+            description: 'Comfortable and trendy T-shirt for any occasion.',
+            image: 'url_to_image',
+            price: 29.99,
+          },
+          {
+            name: 'Slim Fit Jeans',
+            description: 'Classic slim fit jeans for a fashionable look.',
+            image: 'url_to_image',
+            price: 49.99,
+          },
+          // Add more trending products as needed
+        ],
+      };
+    },
+  };
+  </script>
+  
+  <style scoped>
+  /* Add your component-specific styles here */
+  .home {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .featured-categories, .trending-products {
+    margin-top: 20px;
+  }
+  
+  .category, .product {
+    margin-bottom: 20px;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  </style>
+  
